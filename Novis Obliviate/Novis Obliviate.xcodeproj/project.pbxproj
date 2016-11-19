@@ -417,6 +417,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7SQS376RG8;
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novisobliviate.Novis-Obliviate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +431,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7SQS376RG8;
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novisobliviate.Novis-Obliviate";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -514,6 +516,7 @@
 				340C224D1DE07EA700D4D75C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		340C224E1DE07EA700D4D75C /* Build configuration list for PBXNativeTarget "Novis ObliviateTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +525,7 @@
 				340C22501DE07EA700D4D75C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		340C22511DE07EA700D4D75C /* Build configuration list for PBXNativeTarget "Novis ObliviateUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +534,7 @@
 				340C22531DE07EA700D4D75C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
