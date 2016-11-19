@@ -19,9 +19,7 @@ class ViewController: UIViewController {
     let microphoneProcessor = MicrophoneRecorder()
     
         
-        if let outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            recorder = AccelerometerRecorder(identifier: "", frequency: 40, outputDirectory: outputDirectory)
-        }
+        
     }
 
     override func didReceiveMemoryWarning() {

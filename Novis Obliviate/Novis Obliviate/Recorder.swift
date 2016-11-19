@@ -10,5 +10,5 @@ import Foundation
 
 protocol Recorder {
   func start()
-  func stop() -> URL
+  func stop() -> URL?
 }

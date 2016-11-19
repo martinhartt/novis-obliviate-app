@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreMotion
 
-class AccelerometerRecorder {
+class AccelerometerRecorder: Recorder {
     
     // MARK: Constants
     let identifier: String

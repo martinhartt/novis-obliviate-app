@@ -19,6 +19,9 @@ class Core {
   
   private init() {
     microphoneRecorder = MicrophoneRecorder()
+    if let outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+      accelorometerRecorder = AccelerometerRecorder(identifier: "", frequency: 40, outputDirectory: outputDirectory)
+    }
   }
   
   func start() {
