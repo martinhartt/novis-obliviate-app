@@ -9,7 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var startRecordingLabel: UILabel!
 
+    @IBOutlet weak var startRecordingButton: UIButton!
+    
+    
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -19,6 +24,13 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+    
+    @IBAction func startRecording(startRecording : UIButton) {
+        // call next screen
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "RecordingViewController")
+        self.present(viewController!, animated: true, completion: nil)
+    }
+    
 
 
 }

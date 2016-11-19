@@ -14,6 +14,7 @@
 		340C22311DE07EA600D4D75C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C222F1DE07EA600D4D75C /* LaunchScreen.storyboard */; };
 		340C223C1DE07EA700D4D75C /* Novis_ObliviateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C223B1DE07EA700D4D75C /* Novis_ObliviateTests.swift */; };
 		340C22471DE07EA700D4D75C /* Novis_ObliviateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C22461DE07EA700D4D75C /* Novis_ObliviateUITests.swift */; };
+		C9A1EFC51DE09FA600455B13 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A1EFC41DE09FA600455B13 /* RecordingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		340C22421DE07EA700D4D75C /* Novis ObliviateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Novis ObliviateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340C22461DE07EA700D4D75C /* Novis_ObliviateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novis_ObliviateUITests.swift; sourceTree = "<group>"; };
 		340C22481DE07EA700D4D75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9A1EFC41DE09FA600455B13 /* RecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				340C222D1DE07EA600D4D75C /* Assets.xcassets */,
 				340C222F1DE07EA600D4D75C /* LaunchScreen.storyboard */,
 				340C22321DE07EA600D4D75C /* Info.plist */,
+				C9A1EFC41DE09FA600455B13 /* RecordingViewController.swift */,
 			);
 			path = "Novis Obliviate";
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				340C22291DE07EA600D4D75C /* ViewController.swift in Sources */,
 				340C22271DE07EA600D4D75C /* AppDelegate.swift in Sources */,
+				C9A1EFC51DE09FA600455B13 /* RecordingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Novis_Obliviate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,93 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p1G-dq-OCb">
+                                <rect key="frame" x="36" y="40" width="303" height="607"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTy-gz-WCR">
+                                        <rect key="frame" x="91.5" y="0.0" width="120" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgK-QL-c2V">
+                                        <rect key="frame" x="120.5" y="507" width="62" height="100"/>
+                                        <state key="normal" image="micRecord"/>
+                                        <connections>
+                                            <action selector="startRecordingWithStartRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Md7-a4-1Pe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="p1G-dq-OCb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="01K-cY-Ic4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p1G-dq-OCb" secondAttribute="trailing" constant="20" id="B3o-cO-iIJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p1G-dq-OCb" secondAttribute="bottom" constant="20" id="HZH-BB-q6Q"/>
+                            <constraint firstItem="p1G-dq-OCb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="kzc-WU-K7Q"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startRecordingButton" destination="hgK-QL-c2V" id="ljb-iK-RAD"/>
+                        <outlet property="startRecordingLabel" destination="BTy-gz-WCR" id="bJj-Hk-0bS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Recording View Controller-->
+        <scene sceneID="GrL-vX-rO5">
+            <objects>
+                <viewController storyboardIdentifier="RecordingViewController" id="MOQ-T4-huZ" customClass="RecordingViewController" customModule="Novis_Obliviate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W8c-ha-Nrg"/>
+                        <viewControllerLayoutGuide type="bottom" id="jZ6-YF-4Bq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BVW-8G-eDq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I0S-Ak-LfQ">
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop Recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-vX-koS">
+                                        <rect key="frame" x="108.5" y="0.0" width="118" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRU-TT-c3m">
+                                        <rect key="frame" x="136.5" y="486" width="62" height="121"/>
+                                        <state key="normal" image="micStop"/>
+                                        <connections>
+                                            <action selector="stopRecordingButtonWithStopRecordingButton:" destination="MOQ-T4-huZ" eventType="touchUpInside" id="zxv-Ga-od3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jZ6-YF-4Bq" firstAttribute="top" secondItem="I0S-Ak-LfQ" secondAttribute="bottom" constant="20" id="EsZ-dL-aaT"/>
+                            <constraint firstItem="I0S-Ak-LfQ" firstAttribute="leading" secondItem="BVW-8G-eDq" secondAttribute="leading" constant="20" id="HhN-14-dcI"/>
+                            <constraint firstItem="I0S-Ak-LfQ" firstAttribute="top" secondItem="W8c-ha-Nrg" secondAttribute="bottom" constant="20" id="i7d-mb-pDS"/>
+                            <constraint firstAttribute="trailing" secondItem="I0S-Ak-LfQ" secondAttribute="trailing" constant="20" id="oVx-KD-ndG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stopRecordingButton" destination="WRU-TT-c3m" id="6Ch-Xs-OzR"/>
+                        <outlet property="stopRecordingLabel" destination="pdh-vX-koS" id="7P3-Ub-57a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MFw-Ec-Bwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="37"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="micRecord" width="62" height="100"/>
+        <image name="micStop" width="62" height="121"/>
+    </resources>
 </document>
