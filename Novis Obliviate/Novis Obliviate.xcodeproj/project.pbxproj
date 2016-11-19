@@ -14,10 +14,10 @@
 		340C22311DE07EA600D4D75C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C222F1DE07EA600D4D75C /* LaunchScreen.storyboard */; };
 		340C223C1DE07EA700D4D75C /* Novis_ObliviateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C223B1DE07EA700D4D75C /* Novis_ObliviateTests.swift */; };
 		340C22471DE07EA700D4D75C /* Novis_ObliviateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C22461DE07EA700D4D75C /* Novis_ObliviateUITests.swift */; };
+		3438A5651DE1078E002E453C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FD69651DE0A6860063CC1B /* AFNetworking.framework */; };
+		3438A5661DE1078E002E453C /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FD69661DE0A6860063CC1B /* Zip.framework */; };
 		34E940441DE0827400491485 /* MicrophoneRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E940431DE0827400491485 /* MicrophoneRecorder.swift */; };
 		34FD69631DE09DDD0063CC1B /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FD69621DE09DDD0063CC1B /* Core.swift */; };
-		34FD696C1DE0A7530063CC1B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FD69651DE0A6860063CC1B /* AFNetworking.framework */; };
-		34FD696D1DE0A7530063CC1B /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FD69661DE0A6860063CC1B /* Zip.framework */; };
 		34FD696F1DE0AC450063CC1B /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FD696E1DE0AC450063CC1B /* Recorder.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34FD696C1DE0A7530063CC1B /* AFNetworking.framework in Frameworks */,
-				34FD696D1DE0A7530063CC1B /* Zip.framework in Frameworks */,
+				3438A5651DE1078E002E453C /* AFNetworking.framework in Frameworks */,
+				3438A5661DE1078E002E453C /* Zip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
