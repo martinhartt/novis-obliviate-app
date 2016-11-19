@@ -9,15 +9,19 @@
 import UIKit
 import AVFoundation
 
-class MicrophoneProcessor: NSObject {
+class MicrophoneRecorder: NSObject, Recorder {
   
   var audioRecorder: AVAudioRecorder?
   var isWaterRunning: Bool = false
   var soundLevelHistory: [Double] = []
+  var peakValue: Float = -200.0
+  var lowestValue: Float = 0.0
+  var averageValue: Float = 0.0
+  var midValue: Float = 0.0
+  var threshold: Double = -400
   
   override init() {
     super.init()
-    
     
     let directories = FileManager.default.urls(for: .documentDirectory,
                                             in: .userDomainMask)
@@ -49,50 +53,42 @@ class MicrophoneProcessor: NSObject {
       print("audioSession error: \(error.localizedDescription)")
     }
     
-    startRecording()
+    start()
   }
   
-  func startRecording() {
+  func start() {
     audioRecorder?.record()
-    Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MicrophoneProcessor.updateLevels), userInfo: nil, repeats: true)
-    print("Start recording")
+    Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MicrophoneRecorder.updateLevels), userInfo: nil, repeats: true)
   }
+  
+  var averageAudio = 0.0
   
   func updateLevels() {
     guard let audioRecorder = audioRecorder else { return }
     
     audioRecorder.updateMeters()
     
-    let avrg = Double(audioRecorder.averagePower(forChannel: 0))
+    let avrg = Double(audioRecorder.peakPower(forChannel: 0))
     let soundLevel: Double = pow(10.0, (0.05 * avrg))
-
-    let difference = soundLevel - (soundLevelHistory.count > 10 ? soundLevelHistory[soundLevelHistory.count - 9] : 0.0)
     
-    if (isWaterRunning) {
-      
-      if avrg < -40 {
-        isWaterRunning = false
-      }
-      
-    } else  {
-      
-      if avrg > -40 {
-        isWaterRunning = true
-      }
-      
-      //print("\(difference)")
+    
+    averageAudio = soundLevelHistory.reduce(0.0, +) / Double(soundLevelHistory.count)
+    
+    isWaterRunning = soundLevel > min(0.2, (averageAudio + 0.02) * 1.5)
+    
+    print("\(soundLevel) \(averageAudio) \(isWaterRunning)")
+    
+    if !isWaterRunning {
+      soundLevelHistory.append(soundLevel)
     }
     
-    soundLevelHistory.append(soundLevel)
     
-    print("\(isWaterRunning) \(avrg) \(difference)")
   }
   
   
-  func stopRecording() {
+  func stop() -> URL {
     audioRecorder?.stop()
+    return FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0]
   }
-  
-  
   
 }

@@ -14,7 +14,11 @@
 		340C22311DE07EA600D4D75C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C222F1DE07EA600D4D75C /* LaunchScreen.storyboard */; };
 		340C223C1DE07EA700D4D75C /* Novis_ObliviateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C223B1DE07EA700D4D75C /* Novis_ObliviateTests.swift */; };
 		340C22471DE07EA700D4D75C /* Novis_ObliviateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C22461DE07EA700D4D75C /* Novis_ObliviateUITests.swift */; };
-		34E940441DE0827400491485 /* MicrophoneProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E940431DE0827400491485 /* MicrophoneProcessor.swift */; };
+		34E940441DE0827400491485 /* MicrophoneRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E940431DE0827400491485 /* MicrophoneRecorder.swift */; };
+		34FD69631DE09DDD0063CC1B /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FD69621DE09DDD0063CC1B /* Core.swift */; };
+		34FD696C1DE0A7530063CC1B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FD69651DE0A6860063CC1B /* AFNetworking.framework */; };
+		34FD696D1DE0A7530063CC1B /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34FD69661DE0A6860063CC1B /* Zip.framework */; };
+		34FD696F1DE0AC450063CC1B /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FD696E1DE0AC450063CC1B /* Recorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +52,11 @@
 		340C22421DE07EA700D4D75C /* Novis ObliviateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Novis ObliviateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340C22461DE07EA700D4D75C /* Novis_ObliviateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novis_ObliviateUITests.swift; sourceTree = "<group>"; };
 		340C22481DE07EA700D4D75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34E940431DE0827400491485 /* MicrophoneProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneProcessor.swift; sourceTree = "<group>"; };
+		34E940431DE0827400491485 /* MicrophoneRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneRecorder.swift; sourceTree = "<group>"; };
+		34FD69621DE09DDD0063CC1B /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		34FD69651DE0A6860063CC1B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		34FD69661DE0A6860063CC1B /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
+		34FD696E1DE0AC450063CC1B /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FD696C1DE0A7530063CC1B /* AFNetworking.framework in Frameworks */,
+				34FD696D1DE0A7530063CC1B /* Zip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +93,7 @@
 				340C223A1DE07EA700D4D75C /* Novis ObliviateTests */,
 				340C22451DE07EA700D4D75C /* Novis ObliviateUITests */,
 				340C22241DE07EA600D4D75C /* Products */,
+				34FD69641DE0A6860063CC1B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,7 +116,9 @@
 				340C222D1DE07EA600D4D75C /* Assets.xcassets */,
 				340C222F1DE07EA600D4D75C /* LaunchScreen.storyboard */,
 				340C22321DE07EA600D4D75C /* Info.plist */,
-				34E940431DE0827400491485 /* MicrophoneProcessor.swift */,
+				34E940431DE0827400491485 /* MicrophoneRecorder.swift */,
+				34FD69621DE09DDD0063CC1B /* Core.swift */,
+				34FD696E1DE0AC450063CC1B /* Recorder.swift */,
 			);
 			path = "Novis Obliviate";
 			sourceTree = "<group>";
@@ -128,6 +141,15 @@
 			path = "Novis ObliviateUITests";
 			sourceTree = "<group>";
 		};
+		34FD69641DE0A6860063CC1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34FD69651DE0A6860063CC1B /* AFNetworking.framework */,
+				34FD69661DE0A6860063CC1B /* Zip.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +160,7 @@
 				340C221F1DE07EA600D4D75C /* Sources */,
 				340C22201DE07EA600D4D75C /* Frameworks */,
 				340C22211DE07EA600D4D75C /* Resources */,
+				34FD69691DE0A6C90063CC1B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -260,14 +283,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34FD69691DE0A6C90063CC1B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		340C221F1DE07EA600D4D75C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FD696F1DE0AC450063CC1B /* Recorder.swift in Sources */,
 				340C22291DE07EA600D4D75C /* ViewController.swift in Sources */,
 				340C22271DE07EA600D4D75C /* AppDelegate.swift in Sources */,
-				34E940441DE0827400491485 /* MicrophoneProcessor.swift in Sources */,
+				34FD69631DE09DDD0063CC1B /* Core.swift in Sources */,
+				34E940441DE0827400491485 /* MicrophoneRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +463,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7SQS376RG8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -434,6 +481,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7SQS376RG8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
