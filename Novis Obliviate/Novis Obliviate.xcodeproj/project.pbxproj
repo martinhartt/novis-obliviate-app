@@ -14,6 +14,10 @@
 		340C22311DE07EA600D4D75C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340C222F1DE07EA600D4D75C /* LaunchScreen.storyboard */; };
 		340C223C1DE07EA700D4D75C /* Novis_ObliviateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C223B1DE07EA700D4D75C /* Novis_ObliviateTests.swift */; };
 		340C22471DE07EA700D4D75C /* Novis_ObliviateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340C22461DE07EA700D4D75C /* Novis_ObliviateUITests.swift */; };
+		E95272FF1DE087B3007D1E9C /* CMAccelerometerData+jsonDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95272FE1DE087B3007D1E9C /* CMAccelerometerData+jsonDictionary.swift */; };
+		E95273011DE08957007D1E9C /* AccelerometerRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95273001DE08957007D1E9C /* AccelerometerRecorder.swift */; };
+		E95273031DE09161007D1E9C /* DataLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95273021DE09161007D1E9C /* DataLogger.swift */; };
+		E95273051DE096D8007D1E9C /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95273041DE096D8007D1E9C /* LogFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		340C22421DE07EA700D4D75C /* Novis ObliviateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Novis ObliviateUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		340C22461DE07EA700D4D75C /* Novis_ObliviateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novis_ObliviateUITests.swift; sourceTree = "<group>"; };
 		340C22481DE07EA700D4D75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E95272FE1DE087B3007D1E9C /* CMAccelerometerData+jsonDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMAccelerometerData+jsonDictionary.swift"; sourceTree = "<group>"; };
+		E95273001DE08957007D1E9C /* AccelerometerRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccelerometerRecorder.swift; sourceTree = "<group>"; };
+		E95273021DE09161007D1E9C /* DataLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLogger.swift; sourceTree = "<group>"; };
+		E95273041DE096D8007D1E9C /* LogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 		340C22251DE07EA600D4D75C /* Novis Obliviate */ = {
 			isa = PBXGroup;
 			children = (
+				E95272FD1DE0876D007D1E9C /* Recorder */,
 				340C22261DE07EA600D4D75C /* AppDelegate.swift */,
 				340C22281DE07EA600D4D75C /* ViewController.swift */,
 				340C222A1DE07EA600D4D75C /* Main.storyboard */,
@@ -123,6 +132,17 @@
 				340C22481DE07EA700D4D75C /* Info.plist */,
 			);
 			path = "Novis ObliviateUITests";
+			sourceTree = "<group>";
+		};
+		E95272FD1DE0876D007D1E9C /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				E95272FE1DE087B3007D1E9C /* CMAccelerometerData+jsonDictionary.swift */,
+				E95273001DE08957007D1E9C /* AccelerometerRecorder.swift */,
+				E95273021DE09161007D1E9C /* DataLogger.swift */,
+				E95273041DE096D8007D1E9C /* LogFormatter.swift */,
+			);
+			name = Recorder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +213,7 @@
 				TargetAttributes = {
 					340C22221DE07EA600D4D75C = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7SQS376RG8;
+						DevelopmentTeam = 29C784RGJ8;
 						ProvisioningStyle = Automatic;
 					};
 					340C22361DE07EA700D4D75C = {
@@ -263,7 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				340C22291DE07EA600D4D75C /* ViewController.swift in Sources */,
+				E95272FF1DE087B3007D1E9C /* CMAccelerometerData+jsonDictionary.swift in Sources */,
 				340C22271DE07EA600D4D75C /* AppDelegate.swift in Sources */,
+				E95273031DE09161007D1E9C /* DataLogger.swift in Sources */,
+				E95273011DE08957007D1E9C /* AccelerometerRecorder.swift in Sources */,
+				E95273051DE096D8007D1E9C /* LogFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7SQS376RG8;
+				DEVELOPMENT_TEAM = 29C784RGJ8;
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novisobliviate.Novis-Obliviate";
@@ -428,7 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7SQS376RG8;
+				DEVELOPMENT_TEAM = 29C784RGJ8;
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.novisobliviate.Novis-Obliviate";
@@ -514,6 +538,7 @@
 				340C224D1DE07EA700D4D75C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		340C224E1DE07EA700D4D75C /* Build configuration list for PBXNativeTarget "Novis ObliviateTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +547,7 @@
 				340C22501DE07EA700D4D75C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		340C22511DE07EA700D4D75C /* Build configuration list for PBXNativeTarget "Novis ObliviateUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +556,7 @@
 				340C22531DE07EA700D4D75C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
