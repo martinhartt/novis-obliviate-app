@@ -12,6 +12,8 @@ import AVFoundation
 class MicrophoneProcessor: NSObject {
   
   var audioRecorder: AVAudioRecorder?
+  var isWaterRunning: Bool = false
+  var soundLevelHistory: [Double] = []
   
   override init() {
     super.init()
@@ -39,7 +41,7 @@ class MicrophoneProcessor: NSObject {
     }
     
     do {
-      self.audioRecorder = try? AVAudioRecorder(url: soundFileURL, settings: recordSettings as [String : AnyObject])
+      self.audioRecorder = try AVAudioRecorder(url: soundFileURL, settings: recordSettings as [String : AnyObject])
       audioRecorder?.prepareToRecord()
       audioRecorder?.isMeteringEnabled = true
       
@@ -52,15 +54,38 @@ class MicrophoneProcessor: NSObject {
   
   func startRecording() {
     audioRecorder?.record()
-    let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MicrophoneProcessor.test), userInfo: nil, repeats: true)
+    Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MicrophoneProcessor.updateLevels), userInfo: nil, repeats: true)
     print("Start recording")
   }
   
-  func test() {
-    print("Hello!")
+  func updateLevels() {
+    guard let audioRecorder = audioRecorder else { return }
     
-    audioRecorder?.updateMeters()
-    print(self.audioRecorder?.averagePower(forChannel: 0))
+    audioRecorder.updateMeters()
+    
+    let avrg = Double(audioRecorder.averagePower(forChannel: 0))
+    let soundLevel: Double = pow(10.0, (0.05 * avrg))
+
+    let difference = soundLevel - (soundLevelHistory.count > 10 ? soundLevelHistory[soundLevelHistory.count - 9] : 0.0)
+    
+    if (isWaterRunning) {
+      
+      if avrg < -40 {
+        isWaterRunning = false
+      }
+      
+    } else  {
+      
+      if avrg > -40 {
+        isWaterRunning = true
+      }
+      
+      //print("\(difference)")
+    }
+    
+    soundLevelHistory.append(soundLevel)
+    
+    print("\(isWaterRunning) \(avrg) \(difference)")
   }
   
   
