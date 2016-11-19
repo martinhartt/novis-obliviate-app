@@ -9,33 +9,29 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var startRecordingLabel: UILabel!
+
+    @IBOutlet weak var startRecordingButton: UIButton!
     
-    var recorder: AccelerometerRecorder?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if let outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            recorder = AccelerometerRecorder(identifier: "", frequency: 40, outputDirectory: outputDirectory)
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func startRecording(sender: UIButton) {
     
-        guard let recorder = recorder else { return }
-        
-        if recorder.isRecording {
-            sender.setTitle("Start recording", for: .normal)
-            recorder.stop()
-        } else {
-            sender.setTitle("Stop recording", for: .normal)
-            recorder.start()
-        }
+    
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+  }
+
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+    
+    @IBAction func startRecording(startRecording : UIButton) {
+        // call next screen
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "RecordingViewController")
+        self.present(viewController!, animated: true, completion: nil)
     }
+    
+
+
 }
 
