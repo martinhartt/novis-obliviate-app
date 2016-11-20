@@ -10,12 +10,20 @@ import Foundation
 import AFNetworking
 import Zip
 
+typealias updateCallback = (Bool) -> Void
+
 class Core {
 
   static var sharedInstance = Core()
   
-  var microphoneRecorder: Recorder?
+  var microphoneRecorder: MicrophoneRecorder?
   var accelorometerRecorder: Recorder?
+  
+  var updateCallback: updateCallback? {
+    didSet {
+      microphoneRecorder?.updateCallback = self.updateCallback
+    }
+  }
   
   private init() {
     microphoneRecorder = MicrophoneRecorder()

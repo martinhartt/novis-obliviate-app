@@ -21,6 +21,7 @@ class MicrophoneRecorder: NSObject, Recorder {
   var threshold: Double = -400
   var soundFileURL: URL?
   var timer: Timer?
+  var updateCallback: updateCallback?
   
   override init() {
     super.init()
@@ -75,7 +76,12 @@ class MicrophoneRecorder: NSObject, Recorder {
     
     averageAudio = soundLevelHistory.reduce(0.0, +) / Double(soundLevelHistory.count)
     
+    let prev = isWaterRunning
     isWaterRunning = soundLevel > min(0.2, (averageAudio + 0.02) * 1.5)
+    
+    if prev != isWaterRunning {
+      updateCallback?(isWaterRunning)
+    }
     
     print("\(soundLevel) \(averageAudio) \(isWaterRunning)")
     
