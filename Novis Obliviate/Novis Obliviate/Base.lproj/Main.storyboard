@@ -58,8 +58,57 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
+        <!--Recording View Controller-->
+        <scene sceneID="GrL-vX-rO5">
+            <objects>
+                <viewController storyboardIdentifier="RecordingViewController" id="MOQ-T4-huZ" customClass="RecordingViewController" customModule="Novis_Obliviate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W8c-ha-Nrg"/>
+                        <viewControllerLayoutGuide type="bottom" id="jZ6-YF-4Bq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BVW-8G-eDq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I0S-Ak-LfQ">
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop Recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-vX-koS">
+                                        <rect key="frame" x="108.5" y="0.0" width="118" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRU-TT-c3m">
+                                        <rect key="frame" x="136.5" y="486" width="62" height="121"/>
+                                        <state key="normal" image="micStop"/>
+                                        <connections>
+                                            <action selector="stopRecordingButtonWithStopRecordingButton:" destination="MOQ-T4-huZ" eventType="touchUpInside" id="zxv-Ga-od3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jZ6-YF-4Bq" firstAttribute="top" secondItem="I0S-Ak-LfQ" secondAttribute="bottom" constant="20" id="EsZ-dL-aaT"/>
+                            <constraint firstItem="I0S-Ak-LfQ" firstAttribute="leading" secondItem="BVW-8G-eDq" secondAttribute="leading" constant="20" id="HhN-14-dcI"/>
+                            <constraint firstItem="I0S-Ak-LfQ" firstAttribute="top" secondItem="W8c-ha-Nrg" secondAttribute="bottom" constant="20" id="i7d-mb-pDS"/>
+                            <constraint firstAttribute="trailing" secondItem="I0S-Ak-LfQ" secondAttribute="trailing" constant="20" id="oVx-KD-ndG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stopRecordingButton" destination="WRU-TT-c3m" id="6Ch-Xs-OzR"/>
+                        <outlet property="stopRecordingLabel" destination="pdh-vX-koS" id="7P3-Ub-57a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MFw-Ec-Bwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="37"/>
+        </scene>
     </scenes>
     <resources>
         <image name="micRecord" width="62" height="100"/>
+        <image name="micStop" width="62" height="121"/>
     </resources>
 </document>

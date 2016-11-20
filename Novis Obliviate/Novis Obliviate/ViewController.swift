@@ -19,6 +19,7 @@ class ViewController: UIViewController {
   var boltViews: [UIImageView] = []
   var boltPositions = [CGPoint]()
   
+  
   override func viewDidLoad() {
   super.viewDidLoad()
     setup()
@@ -95,8 +96,8 @@ class ViewController: UIViewController {
   }
 
   override func didReceiveMemoryWarning() {
-  super.didReceiveMemoryWarning()
-  // Dispose of any resources that can be recreated.
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
   }
   
   @IBAction func startRecording(startRecording : UIButton) {

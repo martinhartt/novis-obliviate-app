@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DE8890B2258CC2060C2B58D8D13413A4A7E4B6D0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "56E4C1791BF47BA2F46356E56688387990DD5625" : 9223372036854775807,
+    "DE8890B2258CC2060C2B58D8D13413A4A7E4B6D0" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E34C2401-0D72-42E3-97BB-AC142F611E25",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "56E4C1791BF47BA2F46356E56688387990DD5625" : "",
+    "DE8890B2258CC2060C2B58D8D13413A4A7E4B6D0" : "novis-obliviate-app\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Novis Obliviate",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Novis Obliviate\/Novis Obliviate.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:luxman21\/luxman21.github.io.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "56E4C1791BF47BA2F46356E56688387990DD5625"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/martinhartt\/novis-obliviate-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DE8890B2258CC2060C2B58D8D13413A4A7E4B6D0"
+    }
+  ]
+}
