@@ -74,4 +74,16 @@ class Core {
     })
   }
   
+  func sendNotification() {
+    
+    let n = UILocalNotification()
+    
+    n.alertTitle = "You forgot to turn off the tap!"
+    n.alertBody = "Hey dude! You forgot to turn off the tap!"
+    
+    n.fireDate = Date(timeIntervalSinceNow: 10.0)
+    
+    UIApplication.shared.scheduleLocalNotification(n)
+  }
+  
 }
