@@ -7,12 +7,14 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 class ViewController: UIViewController {
   @IBOutlet weak var startRecordingLabel: UILabel!
 
   @IBOutlet weak var startRecordingButton: UIButton!
+    
+    
   var isRecording = false
   var core = Core.sharedInstance
   

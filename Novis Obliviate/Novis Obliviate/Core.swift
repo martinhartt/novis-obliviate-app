@@ -9,13 +9,18 @@
 import Foundation
 import AFNetworking
 import Zip
+import CoreLocation
 
 typealias updateCallback = (Bool) -> Void
 
-class Core {
+class Core: NSObject, CLLocationManagerDelegate {
 
   static var sharedInstance = Core()
   
+    
+    var locationManager: CLLocationManager!
+    
+    
   var microphoneRecorder: MicrophoneRecorder?
   var accelorometerRecorder: Recorder?
   
@@ -25,7 +30,15 @@ class Core {
     }
   }
   
-  private init() {
+  private override init() {
+    super.init()
+    
+    locationManager = CLLocationManager()
+    locationManager.delegate = self
+    locationManager.requestAlwaysAuthorization()
+    
+    
+    
     microphoneRecorder = MicrophoneRecorder()
     if let outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
       accelorometerRecorder = AccelerometerRecorder(identifier: "", frequency: 40, outputDirectory: outputDirectory)
@@ -73,5 +86,49 @@ class Core {
       print("We got an error here.. \(error.localizedDescription)")
     })
   }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    startScanning()
+                }
+            }
+        }
+    }
+    
+    func startScanning() {
+        let uuid = UUID(uuidString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
+        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: 3456, minor: 57833, identifier: "MyBeacon")
+        
+        locationManager.startMonitoring(for: beaconRegion)
+        locationManager.startRangingBeacons(in: beaconRegion)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        print("count: \(beacons.count)")
+        if beacons.count > 0 {
+            updateDistance(beacons[0].proximity)
+        } else {
+            updateDistance(.unknown)
+        }
+    }
+    
+    func updateDistance(_ distance: CLProximity) {
+        print(distance.rawValue)
+        switch distance {
+        case .unknown:
+            print("unknown")
+            
+        case .far:
+            print("far")
+            
+        case .near:
+            print("near")
+            
+        case .immediate:
+            print("immediate")
+        }
+    }
   
 }

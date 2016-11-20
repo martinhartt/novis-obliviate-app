@@ -67,6 +67,7 @@
 		34FD69651DE0A6860063CC1B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		34FD69661DE0A6860063CC1B /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
 		34FD696E1DE0AC450063CC1B /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		C9392FDA1DE1ACF300264E24 /* Novis Obliviate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Novis Obliviate.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +121,7 @@
 		340C22251DE07EA600D4D75C /* Novis Obliviate */ = {
 			isa = PBXGroup;
 			children = (
+				C9392FDA1DE1ACF300264E24 /* Novis Obliviate.entitlements */,
 				340C22261DE07EA600D4D75C /* AppDelegate.swift */,
 				3438A5671DE10996002E453C /* AccelerometerRecorder.swift */,
 				340C22281DE07EA600D4D75C /* ViewController.swift */,
@@ -238,6 +240,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -487,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Novis Obliviate/Novis Obliviate.entitlements";
 				DEVELOPMENT_TEAM = 874JW97FLN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -495,7 +501,7 @@
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.novisobliviate.Novis-Obliviate";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Luxman.OxfordHack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -505,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Novis Obliviate/Novis Obliviate.entitlements";
 				DEVELOPMENT_TEAM = 874JW97FLN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,7 +520,7 @@
 				INFOPLIST_FILE = "Novis Obliviate/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.novisobliviate.Novis-Obliviate";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Luxman.OxfordHack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
