@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     core.updateCallback = { isWaterRunning in
       UIView.animate(withDuration: 0.3, animations: {
         
-        self.view.backgroundColor = isWaterRunning ? UIColor.blue : UIColor.white
+        //self.view.backgroundColor = isWaterRunning ? UIColor.blue : UIColor.white
       })
     
     }

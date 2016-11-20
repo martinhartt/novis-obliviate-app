@@ -12,20 +12,32 @@ import Zip
 
 typealias updateCallback = (Bool) -> Void
 
-class Core {
+class Core: NSObject {
 
   static var sharedInstance = Core()
   
   var microphoneRecorder: MicrophoneRecorder?
   var accelorometerRecorder: Recorder?
+  var timer: Timer?
   
   var updateCallback: updateCallback? {
     didSet {
-      microphoneRecorder?.updateCallback = self.updateCallback
+      microphoneRecorder?.updateCallback = { ok in
+        self.updateCallback?(ok)
+        
+        if ok {
+          self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: Selector("sendNotification"), userInfo: nil, repeats: false)
+
+        } else {
+          self.timer?.invalidate()
+          self.timer = nil
+        }
+      }
     }
   }
+  var interval = 0.0
   
-  private init() {
+  private override init() {
     microphoneRecorder = MicrophoneRecorder()
     if let outputDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
       accelorometerRecorder = AccelerometerRecorder(identifier: "", frequency: 40, outputDirectory: outputDirectory)
@@ -79,7 +91,7 @@ class Core {
     let n = UILocalNotification()
     
     n.alertTitle = "You forgot to turn off the tap!"
-    n.alertBody = "Hey dude! You forgot to turn off the tap!"
+    n.alertBody = "You forgot to turn off the tap!"
     
     n.fireDate = Date(timeIntervalSinceNow: 10.0)
     
