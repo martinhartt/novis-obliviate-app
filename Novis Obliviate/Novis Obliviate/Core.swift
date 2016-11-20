@@ -12,7 +12,7 @@ import Zip
 
 class Core {
 
-  var sharedInstance: Core = Core()
+  static var sharedInstance = Core()
   
   var microphoneRecorder: Recorder?
   var accelorometerRecorder: Recorder?

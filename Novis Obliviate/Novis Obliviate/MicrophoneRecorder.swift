@@ -19,6 +19,8 @@ class MicrophoneRecorder: NSObject, Recorder {
   var averageValue: Float = 0.0
   var midValue: Float = 0.0
   var threshold: Double = -400
+  var soundFileURL: URL?
+  var timer: Timer?
   
   override init() {
     super.init()
@@ -26,7 +28,7 @@ class MicrophoneRecorder: NSObject, Recorder {
     let directories = FileManager.default.urls(for: .documentDirectory,
                                             in: .userDomainMask)
     
-    let soundFileURL = directories[0].appendingPathComponent("sound.caf")
+    soundFileURL = directories[0].appendingPathComponent("sound.caf")
 
     
     let recordSettings =
@@ -45,7 +47,7 @@ class MicrophoneRecorder: NSObject, Recorder {
     }
     
     do {
-      self.audioRecorder = try AVAudioRecorder(url: soundFileURL, settings: recordSettings as [String : AnyObject])
+      self.audioRecorder = try AVAudioRecorder(url: soundFileURL!, settings: recordSettings as [String : AnyObject])
       audioRecorder?.prepareToRecord()
       audioRecorder?.isMeteringEnabled = true
       
@@ -53,12 +55,11 @@ class MicrophoneRecorder: NSObject, Recorder {
       print("audioSession error: \(error.localizedDescription)")
     }
     
-    start()
   }
   
   func start() {
     audioRecorder?.record()
-    Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MicrophoneRecorder.updateLevels), userInfo: nil, repeats: true)
+    timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(MicrophoneRecorder.updateLevels), userInfo: nil, repeats: true)
   }
   
   var averageAudio = 0.0
@@ -86,9 +87,13 @@ class MicrophoneRecorder: NSObject, Recorder {
   }
   
   
-  func stop() -> URL {
+  func stop() -> URL? {
     audioRecorder?.stop()
-    return FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)[0]
+    
+    timer?.invalidate()
+    timer = nil
+    
+    return soundFileURL
   }
   
 }
