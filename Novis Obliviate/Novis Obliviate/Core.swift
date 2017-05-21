@@ -31,6 +31,8 @@ class Core: NSObject {
         } else {
           self.timer?.invalidate()
           self.timer = nil
+          
+         // self.sendGoodNotification()
         }
       }
     }
@@ -86,11 +88,22 @@ class Core: NSObject {
     })
   }
   
+  func sendGoodNotification() {
+    let n = UILocalNotification()
+    
+    n.alertTitle = "Novis Obliviate"
+    n.alertBody = "Thanks for turning off the tap!"
+    
+    n.fireDate = Date(timeIntervalSinceNow: 0.0)
+    
+    UIApplication.shared.scheduleLocalNotification(n)
+  }
+  
   func sendNotification() {
     
     let n = UILocalNotification()
     
-    n.alertTitle = "You forgot to turn off the tap!"
+    n.alertTitle = "Novis Obliviate"
     n.alertBody = "You forgot to turn off the tap!"
     
     n.fireDate = Date(timeIntervalSinceNow: 10.0)

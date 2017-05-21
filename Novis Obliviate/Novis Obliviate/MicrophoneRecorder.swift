@@ -82,8 +82,8 @@ class MicrophoneRecorder: NSObject, Recorder {
     averageAudio = soundLevelHistory.reduce(0.0, +) / Double(soundLevelHistory.count)
     
     let prev = isWaterRunning
-    let localResult = soundLevel > min(0.2, (averageAudio + 0.02) * 1.5) && frame > soundLevelHistory.count
-    
+    isWaterRunning = soundLevel > min(0.2, (averageAudio + 0.02) * 1.5) && frame > soundLevelHistory.count
+    /*
     wantTurnOn += localResult ? 2.0 : -0.2
     
     
@@ -94,13 +94,13 @@ class MicrophoneRecorder: NSObject, Recorder {
     } else if wantTurnOn < -threshold {
       isWaterRunning = false
       wantTurnOn = 0
-    }
+     }
+     */
     
     if prev != isWaterRunning {
       updateCallback?(isWaterRunning)
     }
-    
-    
+ 
     //print("\(soundLevel) \(averageAudio) \(isWaterRunning)")
     
     if !isWaterRunning {
